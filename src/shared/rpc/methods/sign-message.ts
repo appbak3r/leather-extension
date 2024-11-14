@@ -17,7 +17,7 @@ const rpcSignMessageParamsSchema = yup.object().shape({
   type: yup.string<SupportedBip322MessageTypes>(),
   account: accountSchema,
   message: yup.string().required(),
-  network: yup.string().oneOf(Object.values(WalletDefaultNetworkConfigurationIds)),
+  network: yup.string().oneOf([...Object.values(WalletDefaultNetworkConfigurationIds), 'regtest']),
   paymentType: yup.string<PaymentTypes>(),
 });
 

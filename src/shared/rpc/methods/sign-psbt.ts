@@ -36,7 +36,7 @@ const rpcSignPsbtParamsSchema = yup.object().shape({
   allowedSighash: yup.array(),
   broadcast: yup.boolean(),
   hex: yup.string().required(),
-  network: yup.string().oneOf(Object.values(WalletDefaultNetworkConfigurationIds)),
+  network: yup.string().oneOf([...Object.values(WalletDefaultNetworkConfigurationIds), 'regtest']),
   signAtIndex: yup.mixed<number | number[]>().test(testIsNumberOrArrayOfNumbers),
 });
 

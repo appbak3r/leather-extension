@@ -20,12 +20,12 @@ export const rpcSendTransferParamsSchemaLegacy = yup.object().shape({
   account: accountSchema,
   address: yup.string().required(),
   amount: yup.string().required(),
-  network: yup.string().oneOf(Object.values(WalletDefaultNetworkConfigurationIds)),
+  network: yup.string().oneOf([...Object.values(WalletDefaultNetworkConfigurationIds), 'regtest']),
 });
 
 export const rpcSendTransferParamsSchema = yup.object().shape({
   account: accountSchema,
-  network: yup.string().oneOf(Object.values(WalletDefaultNetworkConfigurationIds)),
+  network: yup.string().oneOf([...Object.values(WalletDefaultNetworkConfigurationIds), 'regtest']),
   recipients: yup
     .array()
     .required()
